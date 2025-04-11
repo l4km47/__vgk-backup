@@ -8,9 +8,9 @@
 namespace offsets
 {
 //vgk 1.17.3.4
-	PTRDIFF_ vgk_shadow = 0x819C8;     //0F B6 05 ? ? ? ? 4C 8B 05 ? ? ? ?	  > mov     r8, cs:qword_140083F08
-	PTRDIFF_ qword_2	 = 0x81B50;		//48 8B 3D ?? ?? ?? ?? 49 33 D4		  > mov     rdi, cs:qword_140084090
-	PTRDIFF_ byte_1	 = 0x81A90;		//0F B6 35 ?? ?? ?? ?? 41 BC E8 00 00 00 > movzx   esi, cs:byte_140083FD0
+	PTRDIFF_ vgk_shadow = 0x82AC8;		//0F B6 05 ? ? ? ? 4C 8B 05 ? ? ? ?	  > mov     r8, cs:qword_140083F08
+	PTRDIFF_ qword_2    = 0x82C50;		//48 8B 3D ?? ?? ?? ?? 49 33 D4		  > mov     rdi, cs:qword_140084090
+	PTRDIFF_ byte_1	    = 0x82B90;		//0F B6 35 ?? ?? ?? ?? 41 BC E8 00 00 00  > movzx   esi, cs:byte_140083FD0
 }
 
 #endif
@@ -83,8 +83,8 @@ uintptr_t DecryptClonedCr3(uintptr_t VgkAddress, uintptr_t qword_1)
 		return DecryptedCr3;
 	}
 
-ShadowRegionsDataStructure Data = Read<ShadowRegionsDataStructure>(VgkAddress + offsets::vgk_shadow);
-uintptr_t DecryptedCr3 = DecryptClonedCr3(VgkAddress, Data.ClonedCr3);
+ShadowRegionsDataStructure Data = Read<ShadowRegionsDataStructure>(VgkAddress + offsets::vgk_shadow); //Check if ShadowRegion Structure is Valid
+uintptr_t DecryptedCr3 = DecryptClonedCr3(VgkAddress, Data.ClonedCr3); //Should Add Checks For VgkAddress
 
-mem::custom_cr3 = DecryptedCr3;
-mem::plm4_base = Data.FreeIndex << 39;
+mem::custom_cr3 = DecryptedCr3; //Original Cr3
+mem::plm4_base = Data.FreeIndex << 39; //0x27 //Pml4Base
