@@ -2,7 +2,7 @@
 
 ![Research Badge](https://img.shields.io/badge/Purpose-Research%20Only-red)
 ![Version](https://img.shields.io/badge/VGK-1.17.4.2-blue)
-![Last Updated](https://img.shields.io/badge/Last-Updated-11.04.2025-green)
+![Last Updated](https://img.shields.io/badge/11.04.2025-green)
 
 ## ⚠️ DISCLAIMER
 **This repository is for educational and research purposes only.**  
