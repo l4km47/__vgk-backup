@@ -49,8 +49,8 @@ typedef struct ShadowRegionsDataStructure
 /// @brief Cache store
 namespace Cache
 {
-	uintptr_t custom_cr3 = 0;
-	uintptr_t plm4_base = 0;
+	uintptr_t custom_cr3 = 0; // when read game data u need use this as ur kernel cr3 aka dirbase / plm4
+	uintptr_t plm4_base = 0;  // this is your guard region address
 
 	
 } // namespace mem
