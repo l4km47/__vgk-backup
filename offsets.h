@@ -90,10 +90,13 @@ uintptr_t DecryptClonedCr3(uintptr_t VgkAddress, uintptr_t qword_1)
 	return DecryptedCr3;
 }
 
+uintptr_t GetKernelModuleBase(char* module_name){
+	return 0xDEEDBEEF;
+}
 
 int main(){
 		
-	uintptr_t VgkAddress= 0;// u need read vgk.sys address and store here
+	uintptr_t VgkAddress= GetKernelModuleBase("vgk.sys");	;// u need read vgk.sys address and store here
 
 	ShadowRegionsDataStructure Data = Read<ShadowRegionsDataStructure>(VgkAddress + offsets::vgk_shadow); // Read Shadow reagion data
 	uintptr_t DecryptedCr3 = DecryptClonedCr3(VgkAddress, Data.ClonedCr3);								  // decryption
