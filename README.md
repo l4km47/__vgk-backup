@@ -12,5 +12,5 @@ All materials are provided to study anti-cheat mechanisms and develop defensive 
 
 ## 📁 Repository Contents
 - `offsets.h`: Current version offsets and structures
-- `/backups/`: VGK.sys binary backups
+-  VGK.sys binary backups
  
