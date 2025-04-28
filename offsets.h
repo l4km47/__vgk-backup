@@ -106,7 +106,7 @@ int main(){
 
 	// for read Uworld
 	//
-	//  uworld = read(plm4_base + 0x60)
+	//  uworld = read(plm4_base + 0xC0)
 	//  or
 	//  uworld = read(read(image_base + gworld))
 }
